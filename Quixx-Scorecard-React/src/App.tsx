@@ -65,7 +65,10 @@ function App() {
           );
           return cellIndex == row.cells.length - 1
             ? [
-                <div key={`divider-${rowIndex}`} className="w-1 bg-black/80 shrink-0 rounded-full mx-1" />,
+                <div
+                  key={`divider-${rowIndex}`}
+                  className="w-1 bg-black/80 shrink-0 rounded-full mx-1"
+                />,
                 quixxCell,
               ]
             : quixxCell;
@@ -77,7 +80,7 @@ function App() {
 
   function Scores() {
     let totalScore = 0;
-    rows.forEach(row =>{
+    rows.forEach((row) => {
       totalScore += row.CalculateRowScore();
     });
     const penaltyScore = penalites * 5;
@@ -92,9 +95,19 @@ function App() {
             return [
               <RowScore key={`rowScore-${rowIndex}`} data={row} />,
               rowIndex == rows.length - 1 ? (
-                <Minus key={`minus`} color="#000000" size={30} strokeWidth={5} />
+                <Minus
+                  key={`minus`}
+                  color="#000000"
+                  size={30}
+                  strokeWidth={5}
+                />
               ) : (
-                <Plus key={`plus-${rowIndex}`} color="#000000" size={30} strokeWidth={5} />
+                <Plus
+                  key={`plus-${rowIndex}`}
+                  color="#000000"
+                  size={30}
+                  strokeWidth={5}
+                />
               ),
             ];
           })}
@@ -141,7 +154,12 @@ function App() {
         </h1>
         <div className="mx-5 inline-flex items-center flex-wrap gap-3 border-gray-200 border-2 rounded-[8px] p-4">
           {toggleProps.map((prop) => {
-            return <PenaltyToggle key={`penaltyToggle-${prop.toggleIndex}`} props={prop}></PenaltyToggle>;
+            return (
+              <PenaltyToggle
+                key={`penaltyToggle-${prop.toggleIndex}`}
+                props={prop}
+              ></PenaltyToggle>
+            );
           })}
         </div>
       </>
@@ -150,19 +168,24 @@ function App() {
 
   return (
     <>
-      <h1 className="text-center text-5xl font-extrabold tracking-tight text-gray-900 sm:text-7xl">
-        Quixx
-      </h1>
-      <div
-        id="card-root"
-        className="rounded-xl border-2 border-gray-200 p-1 m-5 flex-col space-y-2"
-      >
-        {Rows()}
+    <div className="bg-slate-100 min-h-screen lg:p-50 p-20">
+      <div className="bg-white rounded-xl shadow-2xl">
+        <h1 className="text-center text-5xl font-extrabold tracking-tight text-gray-900 sm:text-7xl">
+          Quixx
+        </h1>
+        <div
+          id="card-root"
+          className="rounded-xl border-2 border-gray-200 p-1 m-5 flex-col space-y-2"
+        >
+          {Rows()}
+        </div>
+        {/*Score Cells*/}
+        {Scores()}
+        {/*Penalty Cells*/}
+        {Penalties()}
+        <div className="h-10"></div>
       </div>
-      {/*Score Cells*/}
-      {Scores()}
-      {/*Penalty Cells*/}
-      {Penalties()}
+      </div>
     </>
   );
 }
