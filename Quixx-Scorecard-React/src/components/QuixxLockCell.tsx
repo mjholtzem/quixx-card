@@ -30,16 +30,17 @@ function QuixxLockCell({ rowDatas, rowIndex, setData }: QuixxLockCellProps) {
 
   function icon() {
     const iconStyle = "text-gray-200 group-hover-enabled:text-black";
+    const size = "50cqw"
     if (lastCellChecked)
-      return <CircleCheck className={iconStyle} strokeWidth={3} size={40} />;
-    else if (locked) return <LockKeyhole className={iconStyle} />;
-    return <LockKeyholeOpen className={iconStyle} />;
+      return <CircleCheck className={iconStyle} strokeWidth={3} size={size} />;
+    else if (locked) return <LockKeyhole className={iconStyle} size={size}/>;
+    return <LockKeyholeOpen className={iconStyle} size={size}/>;
   }
 
   return (
     <button
       disabled={disabled}
-      className={`group rounded-full ${row.cellColor} flex-1 aspect-square flex items-center justify-center enabled:hover:bg-slate-300 transition-all`}
+      className={`@container group rounded-full ${row.cellColor} flex-1 flex items-center justify-center enabled:hover:bg-slate-300 transition-all`}
       onClick={onClick}
     >
       {icon()}

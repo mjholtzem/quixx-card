@@ -41,17 +41,17 @@ function QuixxCell({ rowDatas, rowIndex, cellIndex, setData }: QuixxCellProps) {
     <button
       className={`group rounded-[6px] ${
         row.cellColor
-      } enabled:hover:bg-slate-300 flex-1 aspect-square flex items-center justify-center ${
+      } enabled:hover:bg-slate-300 flex-1 flex items-center justify-center ${
         disabled && "opacity-50"
-      } transition-all`}
+      } transition-all  @container`}
       onClick={onClick}
       disabled={disabled}
     >
       <p
-        className={`font-black text-3xl text-gray-200 group-hover:group-enabled:text-black`}
+        className={`font-black @[3rem]:text-3xl text-sm text-gray-200 group-hover:group-enabled:text-black`}
       >
         {cell.isSelected ? (
-          <CircleCheck strokeWidth={3} size={40} />
+          <CircleCheck strokeWidth={3} size="1.5em" />
         ) : (
           cell.value
         )}
