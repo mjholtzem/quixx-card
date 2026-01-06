@@ -18,7 +18,7 @@ function App() {
         return { value: i + 2, isSelected: false };
       }),
       "bg-red-500",
-      "bg-red-800",
+      "bg-red-700",
       false
     ),
     new RowData(
@@ -26,7 +26,7 @@ function App() {
         return { value: i + 2, isSelected: false };
       }),
       "bg-yellow-500",
-      "bg-yellow-800",
+      "bg-yellow-700",
       false
     ),
     new RowData(
@@ -34,7 +34,7 @@ function App() {
         return { value: i + 2, isSelected: false };
       }),
       "bg-green-500",
-      "bg-green-800",
+      "bg-green-700",
       false
     ),
     new RowData(
@@ -42,7 +42,7 @@ function App() {
         return { value: i + 2, isSelected: false };
       }),
       "bg-blue-500",
-      "bg-blue-800",
+      "bg-blue-700",
       false
     ),
   ]);
@@ -51,7 +51,7 @@ function App() {
     return rows.map((row, rowIndex) => (
       <div
         key={`row-${rowIndex}`}
-        className={`rounded-lg ${row.rowColor} flex gap-0.5 p-1 grow h-0`}
+        className={`rounded-lg lg:rounded-2xl ${row.rowColor} flex gap-0.5 lg:gap-2 p-1 lg:p-2 grow h-0`}
       >
         {row.cells.flatMap((_cell, cellIndex) => {
           const quixxCell = (
@@ -90,7 +90,7 @@ function App() {
         <h1 className="text-left font-extrabold text-gray-900 text-[5cqh]">
           Scores
         </h1>
-        <div className="items-center justify-start gap-2 border-gray-200 border-2 rounded-lg p-2 w-fit flex h-1/2">
+        <div className="items-center justify-start gap-2 border-gray-200 border-2 lg:border-4 rounded-lg lg:rounded-2xl p-2 w-fit flex h-1/2">
           {rows.flatMap((row, rowIndex) => {
             return [
               <RowScore key={`rowScore-${rowIndex}`} data={row} />,
@@ -184,7 +184,7 @@ function App() {
               >
                 <div
                   id="card"
-                  className="rounded-xl border-2 border-gray-200 p-1 flex-col flex gap-1 grow"
+                  className="rounded-xl lg:rounded-2xl border-2 lg:border-4 border-gray-200 p-1 flex-col flex gap-1 grow"
                 >
                   {Rows()}
                 </div>

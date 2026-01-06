@@ -40,7 +40,7 @@ function QuixxLockCell({ rowDatas, rowIndex, setData }: QuixxLockCellProps) {
   return (
     <button
       disabled={disabled}
-      className={`@container group rounded-full ${row.cellColor} flex-1 flex items-center justify-center enabled:hover:bg-slate-300 transition-all`}
+      className={`@container group rounded-full ${row.cellColor} flex-1 flex items-center justify-center enabled:hover:brightness-50 transition-all`}
       onClick={onClick}
     >
       {icon()}

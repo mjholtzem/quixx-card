@@ -39,17 +39,15 @@ function QuixxCell({ rowDatas, rowIndex, cellIndex, setData }: QuixxCellProps) {
 
   return (
     <button
-      className={`group rounded-[6px] ${
+      className={`group rounded-md lg:rounded-xl ${
         row.cellColor
-      } enabled:hover:bg-slate-300 flex-1 flex items-center justify-center ${
+      } enabled:hover:brightness-50 flex-1 flex items-center justify-center ${
         disabled && "opacity-50"
       } transition-all  @container`}
       onClick={onClick}
       disabled={disabled}
     >
-      <p
-        className={`font-black text-[8cqh] text-gray-200 group-hover:group-enabled:text-black`}
-      >
+      <p className={`font-black text-[8cqh] text-gray-200`}>
         {cell.isSelected ? (
           <CircleCheck strokeWidth={3} size="1.5em" />
         ) : (
