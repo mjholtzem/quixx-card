@@ -1,0 +1,9 @@
+{
+  "short_name": "Quixx",
+  "name": "Quixx Card",
+  "start_url": ".",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "#000000",
+  "theme_color": "#000000"
+}

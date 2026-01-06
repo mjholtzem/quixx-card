@@ -87,10 +87,10 @@ function App() {
     totalScore -= penaltyScore;
     return (
       <div className="flex flex-col w-fit gap-1">
-        <h1 className="text-left ml-5 font-extrabold text-gray-900 text-[5cqh]">
+        <h1 className="text-left font-extrabold text-gray-900 text-[5cqh]">
           Scores
         </h1>
-        <div className="mx-5 items-center justify-start gap-2 border-gray-200 border-2 rounded-lg p-2 w-fit flex h-1/2">
+        <div className="items-center justify-start gap-2 border-gray-200 border-2 rounded-lg p-2 w-fit flex h-1/2">
           {rows.flatMap((row, rowIndex) => {
             return [
               <RowScore key={`rowScore-${rowIndex}`} data={row} />,
@@ -149,10 +149,10 @@ function App() {
 
     return (
       <div className="flex flex-col w-fit gap-1">
-        <h1 className="text-left ml-5 font-extrabold text-gray-900 text-[5cqh]">
+        <h1 className="text-left font-extrabold text-gray-900 text-[5cqh]">
           Penalties
         </h1>
-        <div className="mx-5 flex items-center justify-start gap-2 border-gray-200 border-2 rounded-lg p-2 h-1/2 w-fit">
+        <div className="flex items-center justify-start gap-2 border-gray-200 border-2 rounded-lg p-2 h-1/2 w-fit">
           {toggleProps.map((prop) => {
             return (
               <PenaltyToggle
@@ -168,10 +168,10 @@ function App() {
 
   return (
     <>
-      <div className="bg-slate-100 h-screen w-screen p-5 flex flex-col">
-        <div className="bg-white rounded-xl shadow-2xl flex flex-col overflow-hidden grow pb-2 pt-2">
+      <div className="bg-slate-100 p-4 flex flex-col h-full w-full pb-[env(safe-area-inset-bottom)]">
+        <div className="bg-white rounded-xl shadow-2xl flex flex-col overflow-hidden grow p-4">
           <div className="flex flex-col grow h-[70cqh]">
-            <h1 className="text-left ml-5 font-extrabold text-gray-900 text-[5cqh]">
+            <h1 className="text-left font-extrabold text-gray-900 text-[5cqh]">
               Quixx Scorecard
             </h1>
             <div
@@ -180,18 +180,18 @@ function App() {
             >
               <div
                 id="card-aspect-controller"
-                className="w-[min(100cqw,calc(100cqh*20/8))] aspect-20/8 flex"
+                className="w-[min(100cqw,calc(100cqh*22/8))] aspect-22/8 flex"
               >
                 <div
                   id="card"
-                  className="rounded-xl border-2 border-gray-200 p-1 ml-4 flex-col flex gap-1 grow"
+                  className="rounded-xl border-2 border-gray-200 p-1 flex-col flex gap-1 grow"
                 >
                   {Rows()}
                 </div>
               </div>
             </div>
           </div>
-          <div className="flex flex-row grow h-[30cqh]">
+          <div className="flex flex-row grow h-[30cqh] gap-4">
             {/*Score Cells*/}
             {Scores()}
             {/*Penalty Cells*/}
