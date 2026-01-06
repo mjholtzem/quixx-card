@@ -51,7 +51,7 @@ function App() {
     return rows.map((row, rowIndex) => (
       <div
         key={`row-${rowIndex}`}
-        className={`rounded-[8px] ${row.rowColor} flex gap-1 p-2 grow h-0`}
+        className={`rounded-lg ${row.rowColor} flex gap-0.5 p-1 grow h-0`}
       >
         {row.cells.flatMap((_cell, cellIndex) => {
           const quixxCell = (
@@ -67,7 +67,7 @@ function App() {
             ? [
                 <div
                   key={`divider-${rowIndex}`}
-                  className="w-1 bg-black/80 shrink-0 rounded-full mx-1"
+                  className="w-0.5 bg-black/80 shrink-0 mx-1 -my-1"
                 />,
                 quixxCell,
               ]
@@ -86,11 +86,11 @@ function App() {
     const penaltyScore = penalites * 5;
     totalScore -= penaltyScore;
     return (
-      <div className="flex flex-col grow basis-0">
-        <h1 className="text-left m-5 text-1xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">
-          Score
+      <div className="flex flex-col w-fit gap-1">
+        <h1 className="text-left ml-5 font-extrabold text-gray-900 text-[5cqh]">
+          Scores
         </h1>
-        <div className=" @container mx-5 items-center gap-2 border-gray-200 border-2 rounded-[8px] p-4 flex">
+        <div className="mx-5 items-center justify-start gap-2 border-gray-200 border-2 rounded-lg p-2 w-fit flex h-1/2">
           {rows.flatMap((row, rowIndex) => {
             return [
               <RowScore key={`rowScore-${rowIndex}`} data={row} />,
@@ -99,23 +99,23 @@ function App() {
                   key={`minus`}
                   color="#000000"
                   strokeWidth={5}
-                  size="1em"
+                  className="size-1/3"
                 />
               ) : (
                 <Plus
                   key={`plus-${rowIndex}`}
                   color="#000000"
                   strokeWidth={5}
-                  size="1em"
+                  className="size-1/3"
                 />
               ),
             ];
           })}
-          <div className="rounded-[8px] bg-white border-slate-950 border-2 flex items-center justify-center text-slate-950 font-black text-2xl grow">
+          <div className="rounded-sm bg-white border-slate-950 border-2 flex items-center justify-center text-slate-950 font-black text-[3cqh] h-full aspect-6/5">
             {penaltyScore}
           </div>
-          <Equal color="#000000" strokeWidth={3} />
-          <div className="rounded-[8px] bg-slate-950 flex items-center justify-center text-white font-black text-2xl grow">
+          <Equal color="#000000" strokeWidth={3} className="size-1/3" />
+          <div className="rounded-sm bg-slate-950 flex items-center justify-center text-white font-black text-[3cqh] h-full aspect-6/5">
             {totalScore}
           </div>
         </div>
@@ -148,11 +148,11 @@ function App() {
     ];
 
     return (
-      <div className="flex-col grow flex basis-0">
-         <h1 className="text-left m-5 text-1xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">
+      <div className="flex flex-col w-fit gap-1">
+        <h1 className="text-left ml-5 font-extrabold text-gray-900 text-[5cqh]">
           Penalties
         </h1>
-        <div className="mx-5 inline-flex items-center flex-wrap gap-3 border-gray-200 border-2 rounded-[8px] p-4 grow">
+        <div className="mx-5 flex items-center justify-start gap-2 border-gray-200 border-2 rounded-lg p-2 h-1/2 w-fit">
           {toggleProps.map((prop) => {
             return (
               <PenaltyToggle
@@ -162,42 +162,40 @@ function App() {
             );
           })}
         </div>
-        </div>
+      </div>
     );
   }
 
   return (
     <>
-      <div className="bg-slate-100 h-screen w-screen p-10 flex flex-col">
-        <div className="bg-white rounded-xl shadow-2xl flex flex-col overflow-hidden grow">
-          <h1 className="text-left text-xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">
-            Quixx Scorecard
-          </h1>
-          <div
-            id="card-root"
-            className="items-center justify-left grid grow-6 @container-[size]"
-          >
+      <div className="bg-slate-100 h-screen w-screen p-5 flex flex-col">
+        <div className="bg-white rounded-xl shadow-2xl flex flex-col overflow-hidden grow pb-2 pt-2">
+          <div className="flex flex-col grow h-[70cqh]">
+            <h1 className="text-left ml-5 font-extrabold text-gray-900 text-[5cqh]">
+              Quixx Scorecard
+            </h1>
             <div
-              id="card-aspect-controller"
-              className="w-[min(100cqw,calc(100cqh*19/8))] aspect-19/8 flex"
+              id="card-root"
+              className="items-center justify-left flex grow @container-[size]"
             >
               <div
-                id="card"
-                className="rounded-xl border-2 border-gray-200 p-1 m-5 flex-col flex gap-1 grow"
+                id="card-aspect-controller"
+                className="w-[min(100cqw,calc(100cqh*20/8))] aspect-20/8 flex"
               >
-                {Rows()}
+                <div
+                  id="card"
+                  className="rounded-xl border-2 border-gray-200 p-1 ml-4 flex-col flex gap-1 grow"
+                >
+                  {Rows()}
+                </div>
               </div>
             </div>
           </div>
-          <div className="flex flex-row grow mb-5">
-            {/*Horizontal Layout*/}
-            <div className="flex-1 grow-2 flex flex-col">
-              {/*Score Cells*/}
-              {Scores()}
-              {/*Penalty Cells*/}
-              {Penalties()}
-            </div>
-            <div className="bg-green-500 grow"></div>
+          <div className="flex flex-row grow h-[30cqh]">
+            {/*Score Cells*/}
+            {Scores()}
+            {/*Penalty Cells*/}
+            {Penalties()}
           </div>
         </div>
       </div>

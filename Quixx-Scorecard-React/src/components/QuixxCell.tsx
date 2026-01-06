@@ -48,7 +48,7 @@ function QuixxCell({ rowDatas, rowIndex, cellIndex, setData }: QuixxCellProps) {
       disabled={disabled}
     >
       <p
-        className={`font-black @[3rem]:text-3xl text-sm text-gray-200 group-hover:group-enabled:text-black`}
+        className={`font-black text-[8cqh] text-gray-200 group-hover:group-enabled:text-black`}
       >
         {cell.isSelected ? (
           <CircleCheck strokeWidth={3} size="1.5em" />

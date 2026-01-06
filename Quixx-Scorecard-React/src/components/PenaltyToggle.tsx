@@ -16,8 +16,8 @@ function PenaltyToggle({ props }: { props: PenaltyToggleProps }) {
   }
 
   return (
-    <button onClick={onClick} className="@container rounded-[8px] border-black bg-white hover:bg-neutral-300 border-2 flex items-center justify-center text-red-400 aspect-square h-full">
-      {props.toggleIndex + 1 <= props.curPenaltyCount && <X strokeWidth={3} size="75cqw" />}
+    <button onClick={onClick} className=" rounded-sm border-black bg-white hover:bg-neutral-300 border-2 flex items-center justify-center text-red-400 h-full aspect-square">
+      {props.toggleIndex + 1 <= props.curPenaltyCount && <X strokeWidth={3} size="5cqh" />}
     </button>
   );
 }
