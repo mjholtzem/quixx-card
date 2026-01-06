@@ -27,6 +27,13 @@
       "sizes": "512x512",
       "type": "image/png",
       "label": "Application"
+    },
+     {
+      "src": "app-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "label": "Application",
+      "form_factor": "wide"
     }
   ]
 }
